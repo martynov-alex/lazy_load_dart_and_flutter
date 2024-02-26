@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Lesson048Step1 extends StatelessWidget {
-  const Lesson048Step1({super.key});
+class Lesson048Step2 extends StatelessWidget {
+  const Lesson048Step2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,10 @@ class _DataOwnerStatefulState extends State<_DataOwnerStateful> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const _DataConsumerStateless(),
+        _DataProviderInherited(
+          value: _value,
+          child: const _DataConsumerStateless(),
+        ),
         ElevatedButton(
           onPressed: increment,
           child: const Text('Жми!'),
@@ -73,5 +76,19 @@ class _DataConsumerStateful extends StatelessWidget {
     final value =
         context.findAncestorStateOfType<_DataOwnerStatefulState>()?._value ?? 0;
     return Text('$value');
+  }
+}
+
+class _DataProviderInherited extends InheritedWidget {
+  final int value;
+
+  const _DataProviderInherited({
+    required this.value,
+    required super.child,
+  });
+
+  @override
+  bool updateShouldNotify(_DataProviderInherited oldWidget) {
+    return value != oldWidget.value;
   }
 }

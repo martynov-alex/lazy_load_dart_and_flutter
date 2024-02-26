@@ -9,13 +9,7 @@ part of 'settings_screen_controller.dart';
 String _$settingsScreenControllerHash() =>
     r'7b04ddc6f7b929b39551b9b7d5ff7324b86f2416';
 
-/// A class that many Widgets can interact with to read user settings, update
-/// user settings, or listen to user settings changes.
-///
-/// Controllers glue Data Services to Flutter Widgets. The SettingsController
-/// uses the SettingsService to store and retrieve user settings.
-///
-/// Copied from [SettingsScreenController].
+/// See also [SettingsScreenController].
 @ProviderFor(SettingsScreenController)
 final settingsScreenControllerProvider = AutoDisposeAsyncNotifierProvider<
     SettingsScreenController, ThemeMode>.internal(

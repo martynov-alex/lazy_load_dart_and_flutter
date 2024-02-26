@@ -8,7 +8,7 @@ class Lesson048 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('048'),
+        title: const Text('Урок 048'),
       ),
       body: const Lesson048Step1(),
     );
